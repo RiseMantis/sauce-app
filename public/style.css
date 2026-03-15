@@ -33,6 +33,7 @@ body {
   box-shadow: 2px black;
   padding: 10px;
   cursor: pointer;
+  text-decoration: none;
   transition: all 0.5s ease-out;
 
   border-radius: 15px;

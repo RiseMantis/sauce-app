@@ -7,19 +7,19 @@
   <title>Home Page</title>
 </head>
 <body>
-  <div class="message-box"> 
-    <% messages.forEach(message => { %>
-      <div class="message-item"> 
+  <div class="message-box" > 
+    <% messages.forEach((message, index) => { %>
+      <a class="message-item" href="/chat/<%= index %>"> 
           <div class="message-head">
             <span><strong> <%= message.user %> </strong></span>
             <span>
               <strong style="font-size: small;">
-                  <%= message.added %> 
+                  <%= message.added.at(-1) %> 
               </strong>
             </span>
           </div>
-          <p><%= message.text %></p>
-      </div>
+          <p><%= message.text.at(-1) %></p>
+      </a>
     <% }) %>
   </div>
 

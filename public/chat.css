@@ -1,0 +1,68 @@
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-image: linear-gradient(to right, rgb(147, 147, 202), rgb(97, 97, 183));
+
+}
+
+.chat-box{
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  align-items: center;
+  padding-top: 30px;
+}
+
+.chat-header{
+  display: flex;
+  background-color: cyan;
+  min-width: 60vw;
+  border-radius: 20px 20px 0px 0px;
+  padding-left: 5px;
+}
+
+.chats{
+  display: flex;
+  gap: 10px;
+  min-height: max-content;
+  height: 100%;
+  min-width: 60vw;
+  flex-direction: column;
+  background-color: rgb(85, 17, 138);
+  padding: 4px;
+  border-radius: 0px 0px 20px 20px;
+  align-items: flex-end;
+}
+
+.chat-item {
+  background-color: rgb(129, 119, 145);
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  min-width: 30vw;
+  height: max-content;
+  padding: 10px;
+  gap:10px;
+  text-decoration: none;
+
+  border-radius: 15px;
+}
+
+.back{
+  display: flex;
+  border-radius: 15px;
+  padding: 2mm;
+
+  position: fixed;
+  bottom: 30px;
+  left: 20px;
+
+  background-color: darkcyan;
+
+  text-decoration: none;
+  color: white;
+  
+  -webkit-backdrop-filter: inverted;
+  backdrop-filter: inverted;
+
+  max-width: fit-content;
+  max-height: 70px;
+  outline: 2px solid black;
+}

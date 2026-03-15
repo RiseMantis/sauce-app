@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/chat.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XYZ's Chat</title>
+</head>
+<body>
+  <div class="chat-box">
+    <div class="chat-header">
+      <h1><%= message.user %></h1>
+    </div>
+
+    <div class="chats">
+      <% for(let i = 0; i < message.text.length; i++){ %>
+        <div class="chat-item">
+          <div>
+            <strong>
+              <%= message.added[i] %>
+            </strong>
+            <p>
+              <%= message.text[i] %>
+            </p>
+          </div>
+        </div>
+      <%}%>
+    </div>
+      
+  </div>
+
+  <div>
+    <a href="/" class="back">
+      - Back
+    </a>
+  </div>
+</body>
+</html>

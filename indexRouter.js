@@ -12,18 +12,18 @@ function newDate(s = "") {
 const messages = [
   {
     user: "Mukund",
-    text: "Should I shoot my shot",
-    added: newDate("2026-03-11")
+    text: ["Should I shoot my shot"],
+    added: [newDate("2026-03-11")]
   },
   {
     user: "Metro B.",
-    text: "Want some more? ni-",
-    added: newDate("2026-03-2")
+    text: ["Want some more? ni-"],
+    added: [newDate("2026-03-2")]
   },
   {
     user: "Spamton",
-    text: "Here's a deal...",
-    added: newDate("2026-02-29") // one cool thing is that Date() will make this 1 March (the next date), as this date does not exist
+    text: ["Here's a deal..."],
+    added: [newDate("2026-02-29")] // one cool thing is that Date() will make this 1 March (the next date), as this date does not exist
   }
 ];
 
@@ -40,15 +40,33 @@ chatRouter.post('/new', (req, res) => {
   const message = req.body.text;
   console.log(username, message);
 
-  messages.push({
-    user: username,
-    text: message,
-    added: newDate()
-  });
+  const oldChat = messages.findIndex(mess => mess.user === username);
+
+  if(oldChat !== -1){ // If the username already exists, I assume it has to be send to the same person
+    messages[oldChat].text.push(message);
+    messages[oldChat].added.push(newDate());
+  }
+  else{
+    messages.push({
+      user: username,
+      text: [message],
+      added: [newDate()]
+    });
+  }
 
   res.redirect('/'); // So this function redirects us to the main page once post request ends
 });
 
+chatRouter.get('/chat/:id', (req, res) => {
+  const messageId = req.params.id;
+  const theMessage = messages[messageId];
+
+  if(!theMessage){
+    return res.status(404).send("Message not Found");
+  }
+
+  res.render("chat", {message: theMessage});
+});
 
 
 module.exports = chatRouter;
