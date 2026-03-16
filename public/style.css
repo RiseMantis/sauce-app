@@ -3,6 +3,34 @@ body {
   background-image: linear-gradient(to right, rgb(147, 147, 202), rgb(97, 97, 183));
 }
 
+body.dark-mode{
+  background-image: none;
+  background-color: black;
+  color: white;
+}
+
+#dark{
+  background-color: black;
+  color: white;
+  position: fixed;
+  right: 20px;
+  bottom: 30px;
+  cursor: pointer;
+  border-radius: 20px;
+  outline: 2px solid white;
+}
+
+#dark.dark-mode{
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  position: fixed;
+  right: 20px;
+  bottom: 30px;
+  cursor: pointer;
+  border-radius: 20px;
+  outline: 2px solid rgb(0, 0, 0);
+}
+
 .send-button{
   border-radius: 105px;
   background-color: rgb(14, 195, 14);
